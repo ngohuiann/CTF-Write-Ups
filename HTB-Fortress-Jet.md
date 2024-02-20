@@ -1,4 +1,5 @@
-# Nmap
+# HackTheBox Fortress Jet Writeup
+## Nmap
 ```bash
 Nmap scan report for 10.13.37.10
 Host is up, received user-set (0.18s latency).
@@ -38,11 +39,11 @@ PORT      STATE SERVICE  REASON         VERSION
 60006/tcp open  unknown  syn-ack ttl 63
 ```
 
-# Flag 1 Connect
+## Flag 1 Connect
 http://10.13.37.10<br>
 ![Flag 1](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F1.png)
 
-# Flag 2 Digging In
+## Flag 2 Digging In
 ```bash
 dig @10.13.37.10 -x 10.13.37.10 
 
@@ -70,16 +71,16 @@ dig @10.13.37.10 -x 10.13.37.10
 After adding www.securewebinc.jet to /etc/hosts visit www.secureweb.inc.jet
 ![Flag 2](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F2.png)
 
-# Flag 3 Going Deeper
+## Flag 3 Going Deeper
 In Burp we can see the web application is constantly calling to http://www.securewebinc.jet/dirb_safe_dir_rf9EmcEIx/admin/stats.php
 Visiting http://www.securewebinc.jet/dirb_safe_dir_rf9EmcEIx/admin/ lead us to a login page.
 
 
-# Flag 4 Bypass Authentication
+## Flag 4 Bypass Authentication
 Error message when attempting to sign in with admin:admin shows that admin user exists. Username parameter is vulnerable to SQL injection. Get the user's password hash with SQLmap and crach it with hashcat. 
 ![Flag 4](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F4.png)
 
-# Flag 5 Command
+## Flag 5 Command
 Trigger a post request to http://www.securewebinc.jet/dirb_safe_dir_rf9EmcEIx/admin/email.php through the admin dashboard "Quick email" form. Start a netcat listener and receive a reverse shell through command injection.
 ![Flag 5](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F5.png)
 ```bash
@@ -117,7 +118,7 @@ drwxr-x--- 10 root www-data  4096 Dec 20  2017 plugins
 drwxrwxrwx  2 root www-data  4096 Dec 20  2017 uploads
 ```
 
-# Flag 6 Overflown
+## Flag 6 Overflown
 ```python
 import os
 
