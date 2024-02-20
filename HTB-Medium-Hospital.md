@@ -63,7 +63,7 @@ http://10.10.11.241:8080/vendor               (Status: 403) [Size: 279]
 3. File with .php extension got blocked.
 4. Enumerate available extension with burp intruder.
 ```
-![Intruder](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/HTB%20Hospital1.png)
+![Intruder](https://raw.githubusercontent.com/ngohuiann/CTF-Write-Ups/main/image/HTB%20Hospital1.png)
 
 ### PHP Reverse Shell
 ```bash
