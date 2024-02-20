@@ -41,7 +41,7 @@ PORT      STATE SERVICE  REASON         VERSION
 
 ## Flag 1 Connect
 http://10.13.37.10<br>
-![Flag 1](/image/Fortress%20Jet%20F1.png)
+![Flag 1](https://raw.githubusercontent.com/ngohuiann/CTF-Write-Ups/main/image/Fortress%20Jet%20F1.png)
 
 ## Flag 2 Digging In
 ```bash
