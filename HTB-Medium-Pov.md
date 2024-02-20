@@ -1,4 +1,5 @@
-# Nmap
+# HackTheBox Pov Writeup
+## Nmap
 ```
 Nmap scan report for 10.10.11.251
 Host is up, received user-set (0.014s latency).
@@ -14,7 +15,7 @@ PORT   STATE SERVICE REASON          VERSION
 |_http-server-header: Microsoft-IIS/10.0
 ```
 
-## LFI
+### LFI
 ![pov1](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/pov1.png)
 
 dev.pov.htb download CV button generate this request:
