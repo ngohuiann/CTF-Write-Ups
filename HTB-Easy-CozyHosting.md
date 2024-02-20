@@ -120,15 +120,6 @@ Password for user postgres: Vg&nvzAQ7XxR
 
 \c cozyhosting
 You are now connected to database "cozyhosting" as user "postgres".
-\t
-Tuples only is on.
-\l
- cozyhosting | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
- postgres    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
- template0   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
-             |          |          |             |             | postgres=CTc/postgres
- template1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
-             |          |          |             |             | postgres=CTc/postgres
 
 \dt
  public | hosts | table | postgres
