@@ -1,16 +1,16 @@
 # CTF-Write-Ups
 ## HackTheBox Machines :desktop_computer:
 ### Easy
-- [Analytics](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Easy-Analytics.md)
-- [Bizness](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Easy-Bizness.md)
-- [Codify](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Easy-Codify.md)
-- [CozyHosting](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Easy-CozyHosting.md)
+- [Analytics](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Easy-Analytics)
+- [Bizness](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Easy-Biznes)
+- [Codify](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Easy-Codify)
+- [CozyHosting](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Easy-CozyHosting)
 
 ### Medium
-- [Hospital](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Medium-Hospital.md)
-- [Pov](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Medium-Pov.md)
+- [Hospital](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Medium-Hospital)
+- [Pov](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Medium-Pov)
 
 ## HackTheBox Fortress :european_castle:
-- [Akerva](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Fortress-Akerva.md)
-- [Context](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Fortress-Context.md)
-- [Jet](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Fortress-Jet.md)
+- [Akerva](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Fortress-Akerva)
+- [Context](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Fortress-Context)
+- [Jet](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Fortress-Jet)
