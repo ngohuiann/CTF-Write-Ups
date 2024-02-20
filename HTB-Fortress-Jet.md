@@ -41,7 +41,7 @@ PORT      STATE SERVICE  REASON         VERSION
 
 ## Flag 1 Connect
 http://10.13.37.10<br>
-![Flag 1](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F1.png)
+![Flag 1](/image/Fortress%20Jet%20F1.png)
 
 ## Flag 2 Digging In
 ```bash
@@ -69,7 +69,7 @@ dig @10.13.37.10 -x 10.13.37.10
 ;; MSG SIZE  rcvd: 109
 ```
 After adding www.securewebinc.jet to /etc/hosts visit www.secureweb.inc.jet
-![Flag 2](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F2.png)
+![Flag 2](/image/Fortress%20Jet%20F2.png)
 
 ## Flag 3 Going Deeper
 In Burp we can see the web application is constantly calling to http://www.securewebinc.jet/dirb_safe_dir_rf9EmcEIx/admin/stats.php
@@ -78,11 +78,11 @@ Visiting http://www.securewebinc.jet/dirb_safe_dir_rf9EmcEIx/admin/ lead us to a
 
 ## Flag 4 Bypass Authentication
 Error message when attempting to sign in with admin:admin shows that admin user exists. Username parameter is vulnerable to SQL injection. Get the user's password hash with SQLmap and crach it with hashcat. 
-![Flag 4](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F4.png)
+![Flag 4](/image/Fortress%20Jet%20F4.png)
 
 ## Flag 5 Command
 Trigger a post request to http://www.securewebinc.jet/dirb_safe_dir_rf9EmcEIx/admin/email.php through the admin dashboard "Quick email" form. Start a netcat listener and receive a reverse shell through command injection.
-![Flag 5](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/Fortress%20Jet%20F5.png)
+![Flag 5](/image/Fortress%20Jet%20F5.png)
 ```bash
 rlwrap nc -lnvp 1234
 listening on [any] 1234 ...
