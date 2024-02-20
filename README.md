@@ -8,6 +8,7 @@
 
 ### Medium
 - [Hospital](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Medium-Hospital.md)
+- [Pov](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Medium-Pov.md)
 
 ## HackTheBox Fortress :european_castle:
 - [Akerva](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/HTB-Fortress-Akerva.md)
