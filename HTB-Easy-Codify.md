@@ -56,7 +56,7 @@ connect to [10.10.14.7] from (UNKNOWN) [10.10.11.239] 37654
 $ id
 uid=1001(svc) gid=1001(svc) groups=1001(svc)
 
-svc@codify:/opt/scripts$ ls -lals -la /var/www/contact
+svc@codify:/opt/scripts$ ls -la /var/www/contact
 ls -la /var/www/contact
 total 120
 drwxr-xr-x 3 svc  svc   4096 Sep 12 17:45 .
@@ -66,10 +66,10 @@ drwxr-xr-x 5 root root  4096 Sep 12 17:40 ..
 -rw-rw-r-- 1 svc  svc  77131 Apr 19  2023 package-lock.json
 drwxrwxr-x 2 svc  svc   4096 Apr 21  2023 templates
 -rw-r--r-- 1 svc  svc  20480 Sep 12 17:45 tickets.db
-svc@codify:/opt/scripts$ cd /vacd /var/www/contact
-cd /var/www/contact
-svc@codify:/var/www/contact$ stringstrings tickets.db
-strings tickets.db
+
+svc@codify:/opt/scripts$ cd /var/www/contact
+
+svc@codify:/var/www/contact$ strings tickets.db
 SQLite format 3
 otableticketstickets
 CREATE TABLE tickets (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, topic TEXT, description TEXT, status TEXT)P
