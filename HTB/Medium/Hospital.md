@@ -169,14 +169,12 @@ C:\Users\drbrown.HOSPITAL\documents> type ghostscript.bat
 @echo off
 set filename=%~1
 powershell -command "$p = convertto-securestring 'chr!$br0wn' -asplain -force;$c = new-object system.management.automation.pscredential('hospital\drbrown', $p);Invoke-Command -ComputerName dc -Credential $c -ScriptBlock { cmd.exe /c "C:\Program` Files\gs\gs10.01.1\bin\gswin64c.exe" -dNOSAFER "C:\Users\drbrown.HOSPITAL\Downloads\%filename%" }"
-
-
-Th3B3stH0sp1t4l9786!
 ```
 
 # Root Flag
 ```bash
 rdesktop -u drbrown 10.10.11.241
 
-After login, it can be seen that the administrator password is being typed into the website. Save the credential with the browser's autocomplete function and login to administrator through remote desktop with that password.
+After login, it can be seen that the administrator password is being typed into the website.
+Save the credential (Th3B3stH0sp1t4l9786!) with the browser's autocomplete function and login to administrator through remote desktop with that password.
 ```
