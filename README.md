@@ -1,4 +1,4 @@
-# CTF-Write-Ups
+# CTF Write Ups
 ## HackTheBox Machines :desktop_computer:
 ### Easy
 - [Analytics](https://ngohuiann.github.io/CTF-Write-Ups/HTB-Easy-Analytics)
