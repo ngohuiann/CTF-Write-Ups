@@ -1,5 +1,11 @@
-# HackTheBox Pov Writeup
+---
+description: HackTheBox Pov Writeup (Medium)
+---
+
+# Pov Writeup
+
 ## Nmap
+
 ```
 Nmap scan report for 10.10.11.251
 Host is up, received user-set (0.014s latency).
@@ -16,9 +22,11 @@ PORT   STATE SERVICE REASON          VERSION
 ```
 
 ### LFI
+
 ![pov1](https://raw.githubusercontent.com/ngohuiann/CTF-Write-Ups/main/image/pov1.png)
 
 dev.pov.htb download CV button generate this request:
+
 ```
 POST /portfolio/default.aspx HTTP/1.1
 Host: dev.pov.htb
@@ -35,8 +43,7 @@ Upgrade-Insecure-Requests: 1
 
 __EVENTTARGET=download&__EVENTARGUMENT=&__VIEWSTATE=DAsrQy2PiX5KXtsNF4kDsu5N%2BdzCpkMawb5RGKK2jE9Ib1cqLXmSkDJFVuSLpnFGy42fvDQIQ%2BM4UNG84A9ADXmHZV8%3D&__VIEWSTATEGENERATOR=8E0F0FA3&__EVENTVALIDATION=GU%2F9W%2BTIKmqI67CcoIuM9cVEupmKIkWHSIH7STIYe2%2F98bqu8u2yf9qPKhgQ2okH9EAcOgB243e%2BaS4XYn3bwjWrnH4g3ByuUxIOSQER88Q%2F4FAoE9FtdJH0jmKFG1ipF84l2g%3D%3D&file=index.aspx.cs
 ```
+
 ![pov2](https://raw.githubusercontent.com/ngohuiann/CTF-Write-Ups/main/image/pov2.png)
 
 The file parameter is vulnerable to LFI, read source code by inserting default.aspx. It is shown that "../" is being sanitized. But we can bypass this with "....//" or just specified the full path (eg. C:\windows\win.ini)
-
-

